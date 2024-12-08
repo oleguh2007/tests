@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Repository Name
-        run: echo "${{ tojson(github.event.repository.name) }}"
+        run: echo "${{ github.event.repository.name }}"
