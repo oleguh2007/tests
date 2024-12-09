@@ -1,12 +1,17 @@
-name: Print Repository Name
-on: [push, workflow_dispatch]
+name: Conditional Step Example
+on:
+  push:
+    branches:
+      - main
 env:
-  HOSTS: "[11, 22]"
-  CMD: "aaaaaaaaaaaaaaaaaaaaa"
+  CMD: somecommand
 jobs:
-  print-repo-name:
+  example-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Migration
-        if: ${{ env.CMD.length > 4 }}
-        run: echo "${{env.CMD}}"
+      - name: Print CMD
+        run: echo ${{ env.CMD }}
+
+      - name: Step with condition
+        if: ${{ env.CMD && env.CMD.length > 4 }}
+        run: echo "The command has more than 4 characters:${{ env.CMD }}"
