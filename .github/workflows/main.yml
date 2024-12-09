@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Migration
-        if: ${{ env.CMD && length(env.CMD) > 4 }}
+        if: ${{ env.CMD && env.CMD.length > 4 }}
         run: echo "${{vars.CMD}}"
