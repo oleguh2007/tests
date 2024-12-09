@@ -4,6 +4,7 @@ on:
     workflows: ["build"]
     types:
     - completed
+  workflow_dispatch:
   
 jobs:
   Deploy-dev:
@@ -11,4 +12,4 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Deploy
-        run: echo ${{ github }}
+        run: echo "${{ tojson(github) }}"
