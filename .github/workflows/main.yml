@@ -9,4 +9,4 @@ jobs:
         node_ip: ${{vars.HOSTS}}
     steps:
       - name: Print HOST IP
-        run: echo "${{ matrix.node_ip }}"
+        run: echo "${{ fromJson(matrix.node_ip) }}"
