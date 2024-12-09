@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-env:
-  CMD: ''
 jobs:
   example-job:
     runs-on: ubuntu-latest
@@ -13,9 +11,9 @@ jobs:
         run: echo ${{ vars.CMD }}
 
       - name: Step with condition ==
-        if: ${{ vars.CMD == '' }}
+        if: ${{ vars.CMD == 'no' }}
         run: echo "The command is empty"
         
       - name: Step with condition !=
-        if: ${{ vars.CMD != '' }}
+        if: ${{ vars.CMD != 'no' }}
         run: echo "The command is NOT empty"
