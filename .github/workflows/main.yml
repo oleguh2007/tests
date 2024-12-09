@@ -2,6 +2,7 @@ name: Print Repository Name
 on: [push, workflow_dispatch]
 env:
   HOSTS: "[11, 22]"
+  CMD: ${{vars.CMD}}
 jobs:
   print-repo-name:
     runs-on: ubuntu-latest
