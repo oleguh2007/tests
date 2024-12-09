@@ -4,6 +4,9 @@ on: [push, workflow_dispatch]
 jobs:
   print-repo-name:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_ip: ${{vars.HOSTS}}
     steps:
-      - name: Print Repository Name
-        run: echo "${{ github.event.repository.name }}"
+      - name: Print HOST IP
+        run: echo "${{ matrix.node_ip }}"
