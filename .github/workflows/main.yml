@@ -2,7 +2,7 @@ name: Conditional Step Example
 on:
   push:
     branches:
-      - main
+      - dddd
 jobs:
   example-job:
     runs-on: ubuntu-latest
