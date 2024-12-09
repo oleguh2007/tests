@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  CMD: somecommand
+  CMD: ''
 jobs:
   example-job:
     runs-on: ubuntu-latest
@@ -12,6 +12,10 @@ jobs:
       - name: Print CMD
         run: echo ${{ env.CMD }}
 
-      - name: Step with condition
-        if: ${{ env.CMD && env.CMD.length > 4 }}
-        run: echo "The command has more than 4 characters:${{ env.CMD }}"
+      - name: Step with condition ==
+        if: ${{ env.CMD == '' }}
+        run: echo "The command is empty"
+        
+      - name: Step with condition !=
+        if: ${{ env.CMD != '' }}
+        run: echo "The command is NOT empty"
