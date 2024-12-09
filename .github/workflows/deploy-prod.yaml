@@ -1,11 +1,16 @@
 name: Deploy-prod
 on:
   workflow_dispatch:
+      inputs:
+        docker_image_tag:
+          description: 'Get docker image TAG to deploy prod'
+          required: true
+          default: 'none'
   
 jobs:
   Deploy-prod:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.deploy_dev_conclusion == 'success' }}
+    if: ${{ github.event.inputs.docker_image_tag != 'none' }}
     steps:
       - name: Deploy
         run: echo ${{ tojson(github) }}
