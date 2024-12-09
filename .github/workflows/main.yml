@@ -2,11 +2,11 @@ name: Print Repository Name
 on: [push, workflow_dispatch]
 env:
   HOSTS: "[11, 22]"
-  CMD: ${{vars.CMD}}
+  CMD: "aaaaaaaaaaaaaaaaaaaaa"
 jobs:
   print-repo-name:
     runs-on: ubuntu-latest
     steps:
       - name: Migration
-        if: ${{ env.CMD && env.CMD.length > 4 }}
-        run: echo "${{vars.CMD}}"
+        if: ${{ env.CMD.length > 4 }}
+        run: echo "${{env.CMD}}"
