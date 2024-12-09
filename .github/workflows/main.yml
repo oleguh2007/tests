@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print CMD
-        run: echo ${{ env.CMD }}
+        run: echo ${{ vars.CMD }}
 
       - name: Step with condition ==
-        if: ${{ env.CMD == '' }}
+        if: ${{ vars.CMD == '' }}
         run: echo "The command is empty"
         
       - name: Step with condition !=
-        if: ${{ env.CMD != '' }}
+        if: ${{ vars.CMD != '' }}
         run: echo "The command is NOT empty"
