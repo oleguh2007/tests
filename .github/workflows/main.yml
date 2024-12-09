@@ -1,12 +1,13 @@
 name: Print Repository Name
 on: [push, workflow_dispatch]
-
+env:
+  HOSTS: '["10.0.1.100", "10.0.2.222"]'
 jobs:
   print-repo-name:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_ip: [ walid, next ]
+        node_ip: ${{tojson(env.HOSTS)}}
     steps:
       - name: Print HOST IP
-        run: echo "${{ fromJson(matrix.node_ip) }}"
+        run: echo "${{matrix.node_ip}}"
