@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_ip: ${{tojson(env.HOSTS)}}
+        node_ip: ${{fromJson(env.HOSTS)}}
     steps:
       - name: Print HOST IP
         run: echo "${{matrix.node_ip}}"
