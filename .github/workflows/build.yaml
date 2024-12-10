@@ -6,5 +6,7 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
+      - name: get_tag
+        run:  TAG=${GITHUB_SHA::7}; echo "TAG=$TAG" >> $GITHUB_ENV
       - name: Print result
         run: exit 0
